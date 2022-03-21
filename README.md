@@ -22,9 +22,9 @@ If bundler is not being used to manage dependencies, install the gem by executin
 namespace :scrub do
     task :blurb => :environment do |_t, _args|
         include PrettyFeed::PfTf.new(truthy: 'green', falsey: 'blue')
-        pf("this will be green", true)
+        pftf("this will be green", true)
         # => "this will be green" # in the console
-        pf("this will be blue", false)
+        pftf("this will be blue", false)
         # => "this will be blue" # in the console
     end
 end
@@ -36,7 +36,7 @@ Instead of passing truthy or falsey values, you can pass a proc that will be eva
 namespace :scrub do
     task :blurb => :environment do |_t, someth|
         include PrettyFeed::PfTf.new(truthy: 'green', falsey: 'blue')
-        pf("might be green or blue", someth, ->(a) { a })
+        pftf("might be green or blue", someth, ->(a) { a })
         # => the color will depend on what someth is and how the proc evaluates it.
     end
 end

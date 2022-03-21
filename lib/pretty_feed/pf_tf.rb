@@ -8,9 +8,9 @@ module PrettyFeed
   #   namespace :scrub do
   #     task :blurb => :environment do |_t, args|
   #       include PrettyFeed::PfTf.new(truthy: 'green', falsey: 'blue')
-  #       pf("this will be green", true)
+  #       pftf("this will be green", true)
   #       # => "this will be green" # but in green
-  #       pf("this will be blue", false)
+  #       pftf("this will be blue", false)
   #       # => "this will be blue" # but in blue
   #     end
   #   end
