@@ -13,13 +13,14 @@ module PrettyFeed
       else
         mod = Module.new do
           define_method(color.to_sym) do
-            warn "String '#{self}' doesn't respond to #{color}"
+            warn "String '#{self}' doesn't respond to #{color}; adding stub"
             self
           end
         end
 
-        str.singleton_class.send(:include, mod)
-        str
+        dstr = str.dup
+        dstr.singleton_class.send(:include, mod)
+        dstr
       end
     end
   end
