@@ -34,7 +34,7 @@ jobs:
         gemfile:
           - awesome_print
           - colored2
-          - colorized
+          - colorize
         rubygems:
           - latest
         bundler:

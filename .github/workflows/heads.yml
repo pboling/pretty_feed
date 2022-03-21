@@ -32,9 +32,9 @@ jobs:
       matrix:
         experimental: [true]
         gemfile:
-          - f0
-          - f1
-          - f2
+          - awesome_print
+          - colored2
+          - colorize
         rubygems:
           - latest
         bundler:
