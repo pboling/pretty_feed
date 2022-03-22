@@ -18,7 +18,7 @@ module PrettyFeed
     def color_stub(str, color)
       Module.new do
         define_method(color.to_sym) do
-          warn "String '#{str}' doesn't respond to #{color}; adding stub"
+          warn "Adding stub for missing '#{str}'.#{color}"
           self
         end
       end
