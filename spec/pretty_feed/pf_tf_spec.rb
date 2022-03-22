@@ -14,9 +14,19 @@ RSpec.describe PrettyFeed::PfTf do
       output = capture(:stdout) { pftfer.pftf(str, true) }
       expect(output).to match(str)
     end
+    it "#pftf includes prefix when proc is truthy" do
+      str = "hi: "
+      output = capture(:stdout) { pftfer.pftf(str, 123, ->(a) { !!a }) }
+      expect(output).to match(str)
+    end
     it "#pftf includes prefix when falsey" do
       str = "hi: "
       output = capture(:stdout) { pftfer.pftf(str, false) }
+      expect(output).to match(str)
+    end
+    it "#pftf includes prefix when proc is falsey" do
+      str = "hi: "
+      output = capture(:stdout) { pftfer.pftf(str, 123, ->(a) { !a }) }
       expect(output).to match(str)
     end
   end
@@ -25,7 +35,7 @@ RSpec.describe PrettyFeed::PfTf do
   it "#pftf has output when falsey" do
     if COMPAT_LIB.nil?
       output = capture(:stderr) { pftfer.pftf("hi: ", false) }
-      expect(output).to eq("String 'hi: false' doesn't respond to red\n")
+      expect(output).to eq("String 'hi: false' doesn't respond to red; adding stub\n")
     elsif COMPAT_LIB == :cs
       output = capture(:stdout) { pftfer.pftf("hi: ", false) }
       expect(output).to eq("\e[0;31;49mhi: false\e[0m\n")
@@ -37,7 +47,7 @@ RSpec.describe PrettyFeed::PfTf do
   it "#pftf has output when truthy" do
     if COMPAT_LIB.nil?
       output = capture(:stderr) { pftfer.pftf("hi: ", true) }
-      expect(output).to eq("String 'hi: true' doesn't respond to green\n")
+      expect(output).to eq("String 'hi: true' doesn't respond to green; adding stub\n")
     elsif COMPAT_LIB == :cs
       output = capture(:stdout) { pftfer.pftf("hi: ", true) }
       expect(output).to eq("\e[0;32;49mhi: true\e[0m\n")
@@ -53,7 +63,7 @@ RSpec.describe PrettyFeed::PfTf do
     it "#pftf has output when falsey" do
       if COMPAT_LIB.nil?
         output = capture(:stderr) { pftfer.pftf("hi: ", false) }
-        expect(output).to eq("String 'hi: false' doesn't respond to yellow\n")
+        expect(output).to eq("String 'hi: false' doesn't respond to yellow; adding stub\n")
       elsif COMPAT_LIB == :cs
         output = capture(:stdout) { pftfer.pftf("hi: ", false) }
         expect(output).to eq("\e[0;33;49mhi: false\e[0m\n")
@@ -65,7 +75,7 @@ RSpec.describe PrettyFeed::PfTf do
     it "#pftf has output when truthy" do
       if COMPAT_LIB.nil?
         output = capture(:stderr) { pftfer.pftf("hi: ", true) }
-        expect(output).to eq("String 'hi: true' doesn't respond to cyan\n")
+        expect(output).to eq("String 'hi: true' doesn't respond to cyan; adding stub\n")
       elsif COMPAT_LIB == :cs
         output = capture(:stdout) { pftfer.pftf("hi: ", true) }
         expect(output).to eq("\e[0;36;49mhi: true\e[0m\n")
