@@ -11,6 +11,12 @@
 
 ### Removed
 
+## [0.2.0] - 2022-03-21
+
+### Fixed
+
+* Misleading documentation has been corrected
+
 
 ## [0.1.1] - 2022-03-21
 
@@ -25,6 +31,7 @@
 ### Fixed
 
 * Handling of frozen strings
+
 
 ## [0.1.0] - 2022-03-21
 
