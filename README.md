@@ -2,8 +2,6 @@
 
 PrettyFeed is a modulizer you can include in a job, worker, class, rake task, etc, which allows for simple pass/fail logging colorization.  Defaults are `truthy: 'green'` and `falsey: 'red'`.
 
-If `ColorizedString` (from the [`colorize` gem](https://github.com/fazibear/colorize) is defined it will use that.  It is preferred because it doesn't pollute the `String` class with color methods.  Alternatively, it will work with strings that respond to the colors you select as methods on the `String` instance.  This means it should work with `colored2`, `awesome_print`, and many other similar gems.  If your strings do not respond to color methods there will be a `warn` message printed to STDERR.  Colors available depend on the gem you use to provide the color methods!
-
 While this gem has no direct dependencies, it won't accomplish do much for you unless you are using a "console output coloring" gem of some kind.
 
 ## Installation
@@ -41,6 +39,15 @@ namespace :scrub do
     end
 end
 ```
+
+### Defaults
+
+`ColorizedString` (from the [`colorize` gem](https://github.com/fazibear/colorize)) will be used if it is `defined?`.  I prefer it because it doesn't pollute the `String` class with color methods.
+
+### Options
+
+It will also work with strings that respond to the colors you select as methods on the `String` instance.  This means it should work with `colored2`, `awesome_print`, and many other similar gems.  If your strings do not respond to color methods there will be a `warn` message printed to STDERR.  Colors available depend on the gem you use to provide the color methods!  The various gems do not have uniform sets of colors, nor names of colors.
+
 
 ## Development
 
