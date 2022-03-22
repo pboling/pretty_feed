@@ -12,9 +12,9 @@
 #
 
 if RUN_COVERAGE
-  require 'codecov'
-  require 'simplecov-lcov'
-  require 'simplecov-cobertura'
+  require "codecov"
+  require "simplecov-lcov"
+  require "simplecov-cobertura"
 
   SimpleCov.start do
     enable_coverage :branch
@@ -24,11 +24,11 @@ if RUN_COVERAGE
     track_files "**/*.rb"
 
     if ALL_FORMATTERS
-      command_name "#{ENV["GITHUB_WORKFLOW"]} Job #{ENV["GITHUB_RUN_ID"]}:#{ENV["GITHUB_RUN_NUMBER"]}" if ENV['CI']
+      command_name "#{ENV["GITHUB_WORKFLOW"]} Job #{ENV["GITHUB_RUN_ID"]}:#{ENV["GITHUB_RUN_NUMBER"]}" if ENV["CI"]
 
       SimpleCov::Formatter::LcovFormatter.config do |c|
         c.report_with_single_file = true
-        c.single_report_path = 'coverage/lcov.info'
+        c.single_report_path = "coverage/lcov.info"
       end
 
       SimpleCov.formatters = [
@@ -36,7 +36,7 @@ if RUN_COVERAGE
         SimpleCov::Formatter::CoberturaFormatter,
         SimpleCov::Formatter::LcovFormatter,
         SimpleCov::Formatter::JSONFormatter, # For CodeClimate
-        SimpleCov::Formatter::Codecov, # For CodeCov
+        SimpleCov::Formatter::Codecov # For CodeCov
       ]
     else
       formatter SimpleCov::Formatter::HTMLFormatter

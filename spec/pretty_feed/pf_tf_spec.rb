@@ -7,7 +7,7 @@ RSpec.describe PrettyFeed::PfTf do
       expect(pftfer.pftf("bean: ", true)).to be_nil
     end
     it "#pftf returns nil when proc is truthy" do
-      expect(pftfer.pftf("rake: ", true, ->(a) { !!a })).to be_nil
+      expect(pftfer.pftf("rake: ", true, ->(a) { !a.nil? })).to be_nil
     end
     it "#pftf returns nil when falsey" do
       expect(pftfer.pftf("leaf: ", false)).to be_nil
@@ -23,7 +23,7 @@ RSpec.describe PrettyFeed::PfTf do
     it "#pftf includes prefix when proc is truthy" do
       str = "banana: "
       value = 123
-      output = capture(:stdout) { pftfer.pftf(str, value, ->(a) { !!a }) }
+      output = capture(:stdout) { pftfer.pftf(str, value, ->(a) { !a.nil? }) }
       expect(output).to match(str)
       expect(output).to match(value.to_s)
     end
