@@ -93,7 +93,7 @@ the [Pessimistic Version Constraint][pvc] with two digits of precision.
 For example:
 
 ```ruby
-spec.add_dependency "pretty_feed", "~> 0.1"
+spec.add_dependency "pretty_feed", "~> 0.2"
 ```
 
 [copyright-notice-explainer]: https://opensource.stackexchange.com/questions/5778/why-do-licenses-such-as-the-mit-license-specify-a-single-year
