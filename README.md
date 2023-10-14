@@ -72,7 +72,7 @@ The gem is available as open source under the terms of
 the [MIT License][license] [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)][license-ref].
 See [LICENSE][license] for the official [Copyright Notice][copyright-notice-explainer].
 
-* Copyright (c) 2022 [Peter H. Boling][peterboling] of [Rails Bling][railsbling]
+* Copyright (c) 2022-2023 [Peter H. Boling][peterboling] of [Rails Bling][railsbling]
 
 [copyright-notice-explainer]: https://opensource.stackexchange.com/questions/5778/why-do-licenses-such-as-the-mit-license-specify-a-single-year
 
