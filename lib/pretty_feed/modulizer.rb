@@ -7,10 +7,10 @@ module PrettyFeed
       Module.new do
         define_method(:pftf) do |prefix = nil, value = "", proc = nil|
           cvalue = if proc.nil?
-                     value
-                   else
-                     proc.respond_to?(:call) ? proc.call(value) : proc
-                   end
+            value
+          else
+            proc.respond_to?(:call) ? proc.call(value) : proc
+          end
           color = cvalue ? truthy : falsey
           puts PrettyFeed::Compat["#{prefix}#{value}", color].send(color)
         end

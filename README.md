@@ -18,13 +18,13 @@ If bundler is not being used to manage dependencies, install the gem by executin
 
 ```ruby
 namespace :scrub do
-    task :blurb => :environment do |_t, _args|
-        include PrettyFeed::PfTf.new(truthy: 'green', falsey: 'blue')
-        pftf("this will be green", true)
-        # => "this will be green: true" # in the console
-        pftf("this will be blue", false)
-        # => "this will be blue: false" # in the console
-    end
+  task blurb: :environment do |_t, _args|
+      include PrettyFeed::PfTf.new(truthy: "green", falsey: "blue")
+      pftf("this will be green: ", true)
+      # => "this will be green: true" # in the console
+      pftf("this will be blue: ", false)
+      # => "this will be blue: false" # in the console
+  end
 end
 ```
 
@@ -32,12 +32,12 @@ Instead of passing truthy or falsey values, you can pass a proc that will be eva
 
 ```ruby
 namespace :scrub do
-    task :blurb => :environment do |_t, someth|
-        include PrettyFeed::PfTf.new(truthy: 'green', falsey: 'blue')
-        pftf("might be green or blue", someth, ->(a) { a })
-        # => "might be green or blue: #{someth}" # in the console
-        #     NOTE: the color will depend on what someth is and whether the proc evaluates as truthy or falsey.
-    end
+  task blurb: :environment do |_t, someth|
+      include PrettyFeed::PfTf.new(truthy: "green", falsey: "blue")
+      pftf("might be green or blue: ", someth, ->(a) { a })
+      # => "might be green or blue: #{someth}" # in the console
+      #     NOTE: the color will depend on what someth is and whether the proc evaluates as truthy or falsey.
+  end
 end
 ```
 
@@ -93,7 +93,7 @@ the [Pessimistic Version Constraint][pvc] with two digits of precision.
 For example:
 
 ```ruby
-spec.add_dependency "pretty_feed", "~> 0.2"
+spec.add_dependency("pretty_feed", "~> 0.2")
 ```
 
 [copyright-notice-explainer]: https://opensource.stackexchange.com/questions/5778/why-do-licenses-such-as-the-mit-license-specify-a-single-year
