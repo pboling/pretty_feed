@@ -7,7 +7,13 @@ module PrettyFeed
       return ColorizedString[str] if defined?(ColorizedString)
       return str if str.respond_to?(color.to_sym)
 
-      str.dup.singleton_class.send(:include, color_stub(str, color))
+      dstr = str.dup
+      if defined?(Term::ANSIColor)
+        dstr.singleton_class.send(:include, Term::ANSIColor)
+      else
+        dstr.singleton_class.send(:include, color_stub(str, color))
+      end
+      dstr
     end
     module_function :[]
 
