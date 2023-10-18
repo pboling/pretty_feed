@@ -1,5 +1,8 @@
 name: Official Support
 
+env:
+  K_SOUP_DO_COV: false
+
 on:
   push:
     branches:
