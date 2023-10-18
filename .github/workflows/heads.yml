@@ -32,9 +32,10 @@ jobs:
       matrix:
         experimental: [true]
         gemfile:
-          - awesome_print
-          - colored2
-          - colorize
+          - contexts/awesome_print
+          - contexts/colored2
+          - contexts/colorize
+          - contexts/term_ansicolor
         rubygems:
           - latest
         bundler:

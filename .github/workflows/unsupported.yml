@@ -35,6 +35,7 @@ jobs:
           - contexts/awesome_print
           - contexts/colored2
           - contexts/colorize
+          - contexts/term_ansicolor
         rubygems:
           - latest
         bundler:

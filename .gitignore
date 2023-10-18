@@ -12,4 +12,4 @@
 
 # Gemfile Lock files
 Gemfile.lock
-gemfiles/*.gemfile.lock
+gemfiles/**/*.gemfile.lock
