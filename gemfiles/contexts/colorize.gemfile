@@ -3,5 +3,5 @@
 source "https://rubygems.org"
 
 gem "colorize", require: "colorized_string"
-gem "byebug"
+
 eval_gemfile "../vanilla.gemfile"

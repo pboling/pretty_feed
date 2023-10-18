@@ -7,18 +7,26 @@ require "byebug" if ENV.fetch("DEBUG", "false").casecmp?("true")
 
 compat_lib = begin
   require "awesome_print"
-  puts "Testing with awesome_print"
+  puts "Testing with awesome_print".cyan
   :ap
 rescue LoadError # rubocop:disable Lint/SuppressedException
 end || begin
   require "colored2"
-  puts "Testing with colored2"
+  puts "Testing with colored2".cyan
   :c2
 rescue LoadError # rubocop:disable Lint/SuppressedException
 end || begin
   require "colorized_string"
-  puts "Testing with colorized_string"
+  puts ColorizedString["Testing with colorized_string"].cyan
   :cs
+rescue LoadError # rubocop:disable Lint/SuppressedException
+end || begin
+  require "term-ansicolor"
+  class String
+    include Term::ANSIColor
+  end
+  puts "Testing with term-ansicolor".cyan
+  :ta
 rescue LoadError # rubocop:disable Lint/SuppressedException
 end
 
