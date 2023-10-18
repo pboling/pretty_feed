@@ -37,3 +37,12 @@ Bundler/OrderedGems:
 # So we turn off the PredicateMatcher rule.
 RSpec/PredicateMatcher:
   Enabled: false
+
+RSpec/MultipleMemoizedHelpers:
+  Enabled: false
+
+RSpec/NestedGroups:
+  Enabled: false
+
+RSpec/MultipleExpectations:
+  Enabled: false

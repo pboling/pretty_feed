@@ -12,7 +12,7 @@ Gem::Specification.new do |spec|
   spec.authors = ["Peter Boling"]
   spec.email = ["peter.boling@gmail.com"]
 
-  spec.summary = "Simple pass/fail logging colorization"
+  spec.summary = "Simple pass/fail logging with colorization, and block rescuing/benchmarking"
   spec.description = <<~DESC
     PrettyFeed provides a modulizer you can include in a job, worker, class, rake task, etc,
     which allows for simple pass/fail logging colorization.
@@ -28,6 +28,7 @@ Gem::Specification.new do |spec|
   spec.metadata["bug_tracker_uri"] = "https://github.com/pboling/pretty_feed/issues"
   spec.metadata["documentation_uri"] = "https://www.rubydoc.info/gems/pretty_feed/#{spec.version}"
   spec.metadata["wiki_uri"] = "https://github.com/pboling/pretty_feed/wiki"
+  spec.metadata["funding_uri"] = "https://liberapay.com/pboling"
   spec.metadata["rubygems_mfa_required"] = "true"
 
   # Specify which files should be added to the gem when it is released.

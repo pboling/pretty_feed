@@ -1,6 +1,6 @@
 ## Contributing
 
-Bug reports and pull requests are welcome on GitLab at [https://github.com/pboling/pretty_feed][🚎src-main]
+Bug reports and pull requests are welcome on GitHub at [https://github.com/pboling/pretty_feed][🚎src-main]
 . This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to
 the [code of conduct][🤝conduct].
 
@@ -31,7 +31,7 @@ See: [RubyGems Security Guide][🔒️rubygems-security-guide]
 
 Made with [contributors-img][🖐contrib-rocks].
 
-[🧪build]: https://github.com/pboling/require_bench/actions
+[🧪build]: https://github.com/pboling/pretty_feed/actions
 [🏘chat]: https://matrix.to/#/%23pboling_pretty_feed:gitter.im
 [🤝conduct]: https://github.com/pboling/pretty_feed/blob/main/CODE_OF_CONDUCT.md
 [🖐contrib-rocks]: https://contrib.rocks

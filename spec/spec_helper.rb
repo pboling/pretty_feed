@@ -3,6 +3,7 @@
 # External gems
 require "version_gem/rspec"
 require "silent_stream"
+require "byebug" if ENV.fetch("DEBUG", "false").casecmp?("true")
 
 compat_lib = begin
   require "awesome_print"
@@ -24,6 +25,7 @@ end
 COMPAT_LIB = compat_lib
 
 # RSpec Configs
+require "config/rspec/rspec_block_is_expected"
 require "config/rspec/rspec_core"
 require "config/rspec/silent_stream"
 

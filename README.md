@@ -2,7 +2,7 @@
 
 PrettyFeed is a modulizer you can include in a job, worker, class, rake task, etc, which allows for simple pass/fail logging colorization.  Defaults are `truthy: 'green'` and `falsey: 'red'`.
 
-While this gem has no direct dependencies, it won't accomplish do much for you unless you are using a "console output coloring" gem of some kind.
+While this gem has few direct dependencies, it won't accomplish do much for you unless you are using a "console output coloring" gem of some kind.
 
 ## Installation
 
@@ -41,14 +41,30 @@ namespace :scrub do
 end
 ```
 
-### Defaults
+### Options
+
+Released v1.0.0 has new features, all tested at 100% line & branch coverage.
+Overall the library maintains >= 90% line & branch coverage.
+
+- `pftf` now accepts a block, and when given:
+    - `[BEG] #{msg}#{value}` is logged before executing the block
+    - `[FIN] #{msg}#{value}` is logged after executing the block
+- options hash as fourth parameter to `pftf`!
+    - `:rescue_logged` - Error classes that should be rescued and logged. Default: `[]`
+    - `:backtrace_logged` - When truthy, rescued errors log a full backtrace. Default: `nil`
+    - `:reraise` - When truthy, rescued errors will be re-raised. Default: `nil`
+    - `:benchmark` - When truthy, prints realtime spent executing block. Default: `nil`
+
+Find examples of these options in use, with and without blocks,
+in [`pf_tf_spec.rb`](/spec/pretty_feed/pf_tf_spec.rb), as all options are fully tested.
+
+### Library Defaults
 
 `ColorizedString` (from the [`colorize` gem](https://github.com/fazibear/colorize)) will be used if it is `defined?`.  I prefer it because it doesn't pollute the `String` class with color methods.
 
-### Options
+### Library Options
 
-It will also work with strings that respond to the colors you select as methods on the `String` instance.  This means it should work with `colored2`, `awesome_print`, and many other similar gems.  If your strings do not respond to color methods there will be a `warn` message printed to STDERR.  Colors available depend on the gem you use to provide the color methods!  The various gems do not have uniform sets of colors, nor names of colors.
-
+It will also work with strings that respond to the colors you select as methods on the `String` instance.  This means it should work with `colored2`, `awesome_print`, `term-ansicolor`, and many other similar gems.  If your strings do not respond to color methods there will be a `warn` message printed to STDERR.  Colors available depend on the gem you use to provide the color methods!  The various gems do not have uniform sets of colors, nor names of colors.
 
 ## Development
 
@@ -93,7 +109,7 @@ the [Pessimistic Version Constraint][pvc] with two digits of precision.
 For example:
 
 ```ruby
-spec.add_dependency("pretty_feed", "~> 0.2")
+spec.add_dependency("pretty_feed", "~> 1.0")
 ```
 
 [copyright-notice-explainer]: https://opensource.stackexchange.com/questions/5778/why-do-licenses-such-as-the-mit-license-specify-a-single-year

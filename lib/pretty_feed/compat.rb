@@ -7,15 +7,13 @@ module PrettyFeed
       return ColorizedString[str] if defined?(ColorizedString)
       return str if str.respond_to?(color.to_sym)
 
-      dstr = str.dup
-      dstr.singleton_class.send(:include, color_stub(str, color))
-      dstr
+      str.dup.singleton_class.send(:include, color_stub(str, color))
     end
     module_function :[]
 
     private
 
-    def color_stub(str, color)
+    module_function def color_stub(str, color)
       Module.new do
         define_method(color.to_sym) do
           warn "Adding stub for missing '#{str}'.#{color}"
@@ -23,6 +21,5 @@ module PrettyFeed
         end
       end
     end
-    module_function :color_stub
   end
 end
