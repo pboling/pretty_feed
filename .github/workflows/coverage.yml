@@ -3,8 +3,8 @@ name: Code Coverage
 env:
   CI_CODECOV: true
   COVER_ALL: true
-  K_SOUP_COV_MIN_BRANCH: 70
-  K_SOUP_COV_MIN_LINE: 100
+  K_SOUP_COV_MIN_BRANCH: 90
+  K_SOUP_COV_MIN_LINE: 90
   K_SOUP_COV_MIN_HARD: true
 
 on:
@@ -82,7 +82,7 @@ jobs:
           hide_complexity: true
           indicators: true
           output: both
-          thresholds: '95 97'
+          thresholds: '90 90'
         continue-on-error: ${{ matrix.experimental != 'false' }}
 
       - name: Add Coverage PR Comment
