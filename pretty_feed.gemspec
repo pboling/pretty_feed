@@ -12,6 +12,10 @@ Gem::Specification.new do |spec|
   spec.authors = ["Peter Boling"]
   spec.email = ["peter.boling@gmail.com"]
 
+  # See CONTRIBUTING.md
+  spec.cert_chain = ["certs/pboling.pem"]
+  spec.signing_key = File.expand_path("~/.ssh/gem-private_key.pem") if $PROGRAM_NAME.end_with?("gem")
+
   spec.summary = "Simple pass/fail logging with colorization, and block rescuing/benchmarking"
   spec.description = <<~DESC
     PrettyFeed provides a modulizer you can include in a job, worker, class, rake task, etc,
