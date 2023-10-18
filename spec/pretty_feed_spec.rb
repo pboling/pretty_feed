@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 RSpec.describe PrettyFeed do
-  it "has a version number" do
-    expect(PrettyFeed::VERSION).not_to be_nil
+  it "provides a namespace" do
+    expect(described_class).to be_a(Module)
   end
 end

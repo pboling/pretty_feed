@@ -4,4 +4,4 @@ source "https://rubygems.org"
 
 gem "colored2", require: "colored2"
 
-eval_gemfile "../Gemfile"
+eval_gemfile "../vanilla.gemfile"

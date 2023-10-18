@@ -3,6 +3,9 @@ name: Code Coverage
 env:
   CI_CODECOV: true
   COVER_ALL: true
+  K_SOUP_COV_MIN_BRANCH: 70
+  K_SOUP_COV_MIN_LINE: 100
+  K_SOUP_COV_MIN_HARD: true
 
 on:
   push:
@@ -38,19 +41,19 @@ jobs:
         bundler:
           - latest
         ruby:
-          - "2.7"
+          - "3.2"
 
     runs-on: ubuntu-latest
     continue-on-error: ${{ matrix.experimental || endsWith(matrix.ruby, 'head') }}
     steps:
       - uses: amancevice/setup-code-climate@v0
         name: CodeClimate Install
-        if: matrix.ruby == '2.7' && github.event_name != 'pull_request' && always()
+        if: matrix.ruby == '3.2' && github.event_name != 'pull_request' && always()
         with:
           cc_test_reporter_id: ${{ secrets.CC_TEST_REPORTER_ID }}
 
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Setup Ruby & Bundle
         uses: ruby/setup-ruby@v1
@@ -62,7 +65,7 @@ jobs:
 
       - name: CodeClimate Pre-build Notification
         run: cc-test-reporter before-build
-        if: matrix.ruby == '2.7' && github.event_name != 'pull_request' && always()
+        if: matrix.ruby == '3.2' && github.event_name != 'pull_request' && always()
         continue-on-error: ${{ matrix.experimental != 'false' }}
 
       - name: Run tests
@@ -84,7 +87,7 @@ jobs:
 
       - name: Add Coverage PR Comment
         uses: marocchino/sticky-pull-request-comment@v2
-        if: matrix.ruby == '2.7' && github.event_name == 'pull_request' && always()
+        if: matrix.ruby == '3.2' && github.event_name == 'pull_request' && always()
         with:
           recreate: true
           path: code-coverage-results.md
@@ -92,18 +95,19 @@ jobs:
 
       - name: Coveralls
         uses: coverallsapp/github-action@master
-        if: matrix.ruby == '2.7' && github.event_name != 'pull_request' && always()
+        if: matrix.ruby == '3.2' && github.event_name != 'pull_request' && always()
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
         continue-on-error: ${{ matrix.experimental != 'false' }}
 
-#      Using the codecov gem instead.
-#      - name: CodeCov
-#        uses: codecov/codecov-action@v2
-#        if: matrix.ruby == '2.7' && github.event_name != 'pull_request' && always()
-#        with:
-#          files: ./coverage/coverage.xml
-#          flags: unittests
-#          name: codecov-upload
-#          fail_ci_if_error: true
-#        continue-on-error: ${{ matrix.experimental != 'false' }}
+      - name: CodeCov
+        uses: codecov/codecov-action@v3
+        if: matrix.ruby == '3.2' && github.event_name != 'pull_request' && always()
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          files: ./coverage/coverage.xml
+          flags: unittests # optional
+          name: codecov-umbrella # optional
+          fail_ci_if_error: true # optional (default = false)
+          verbose: true # optional (default = false)
+        continue-on-error: ${{ matrix.experimental != 'false' }}

@@ -1,10 +1,14 @@
 # frozen_string_literal: true
 
-require_relative "lib/pretty_feed/version"
+# Get the GEMFILE_VERSION without *require* "my_gem/version", for code coverage accuracy
+# See: https://github.com/simplecov-ruby/simplecov/issues/557#issuecomment-825171399
+load "lib/pretty_feed/version.rb"
+gem_version = PrettyFeed::Version::VERSION
+PrettyFeed::Version.send(:remove_const, :VERSION)
 
 Gem::Specification.new do |spec|
   spec.name = "pretty_feed"
-  spec.version = PrettyFeed::VERSION
+  spec.version = gem_version
   spec.authors = ["Peter Boling"]
   spec.email = ["peter.boling@gmail.com"]
 
@@ -39,12 +43,29 @@ Gem::Specification.new do |spec|
   spec.executables = []
   spec.require_paths = ["lib"]
 
+  # Utilities
+  spec.add_dependency("version_gem", "~> 1.1", ">= 1.1.3")
   spec.add_development_dependency("rake", "~> 13.0")
-  spec.add_development_dependency("rspec", "~> 3.10")
-  spec.add_development_dependency("rspec-benchmark", "~> 0.6")
-  spec.add_development_dependency("rspec-block_is_expected", "~> 1.0")
-  spec.add_development_dependency("silent_stream", "~> 1")
-  spec.add_development_dependency("yard", ">= 0.9.20")
 
+  # Code Coverage
+  spec.add_development_dependency("kettle-soup-cover", "~> 0.1")
+
+  # Documentation
+  spec.add_development_dependency("rbs", "~> 3.1")
+  spec.add_development_dependency("redcarpet", "~> 3.6")
+  spec.add_development_dependency("yard", "~> 0.9", ">= 0.9.34")
+  spec.add_development_dependency("yard-junk", "~> 0.0")
+
+  # Linting
   spec.add_development_dependency("rubocop-lts", "~> 16.1", ">= 16.1.1")
+  spec.add_development_dependency("rubocop-packaging", "~> 0.5", ">= 0.5.2")
+  spec.add_development_dependency("rubocop-rspec", "~> 2.24")
+
+  # Testing
+  spec.add_development_dependency("rspec", "~> 3.12")
+  spec.add_development_dependency("rspec-benchmark", "~> 0.6")
+  spec.add_development_dependency("rspec-block_is_expected", "~> 1.0", ">= 1.0.5")
+  spec.add_development_dependency("rspec_junit_formatter", "~> 0.6")
+  spec.add_development_dependency("rspec-stubbed_env", "~> 1.0", ">= 1.0.1")
+  spec.add_development_dependency("silent_stream", "~> 1")
 end

@@ -4,4 +4,4 @@ source "https://rubygems.org"
 
 gem "awesome_print"
 
-eval_gemfile "../Gemfile"
+eval_gemfile "../vanilla.gemfile"

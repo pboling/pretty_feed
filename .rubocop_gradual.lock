@@ -1,8 +1,4 @@
 {
-  "README.md:1011323409": [
-    [22, 3, 4, "Layout/IndentationWidth: Use 2 (not 4) spaces for indentation.", 2085287685],
-    [36, 3, 4, "Layout/IndentationWidth: Use 2 (not 4) spaces for indentation.", 2085287685]
-  ],
   "spec/pretty_feed/pf_tf_spec.rb:4029327435": [
     [3, 1, 3297, "RSpec/MultipleMemoizedHelpers: Example group has too many memoized helpers [12/5]", 1222040340],
     [19, 3, 2360, "RSpec/MultipleMemoizedHelpers: Example group has too many memoized helpers [12/5]", 4078509425],
