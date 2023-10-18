@@ -80,7 +80,7 @@ RSpec.describe PrettyFeed::PfTf do
       if COMPAT_LIB.nil?
         expect(not_a_proc_truthy).to match("'#{str}#{falsey_value}'.#{truthy_color}")
       else
-        expect(not_a_proc_truthy.split("#{ansi_term_colors[truthy_color]}")[1]).to match("#{str}#{falsey_value}")
+        expect(not_a_proc_truthy.split(ansi_term_colors[truthy_color].to_s)[1]).to match("#{str}#{falsey_value}")
       end
     end
 
@@ -88,7 +88,7 @@ RSpec.describe PrettyFeed::PfTf do
       if COMPAT_LIB.nil?
         expect(not_a_proc_falsey).to match("'#{str}#{truthy_value}'.#{falsey_color}")
       else
-        expect(not_a_proc_falsey.split("#{ansi_term_colors[falsey_color]}")[1]).to match("#{str}#{truthy_value}")
+        expect(not_a_proc_falsey.split(ansi_term_colors[falsey_color].to_s)[1]).to match("#{str}#{truthy_value}")
       end
     end
 
