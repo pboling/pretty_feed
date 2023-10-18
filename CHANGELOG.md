@@ -10,7 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 ### Removed
 
-## [1.0.0] - 2023-10-17
+## [1.0.0] - 2023-10-18
 ### Added
 - Ruby 3.2 to CI build matrix
 - `pftf` now accepts a block, and when given:
@@ -26,6 +26,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - `colorized`
   - `colored2`
   - `awesome_print`
+- SHA-256 and SHA-512 checksums with each release.
+- Releases are now cryptographically signed
 ### Changed
 - `VERSION` constant is now located at `PrettyFeed::Version::VERSION`
 ### Fixed
