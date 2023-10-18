@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.0.0] - 2023-10-17
 ### Added
+- Ruby 3.2 to CI build matrix
 - `pftf` now accepts a block, and when given:
     - `[BEG] #{msg}#{value}` is logged before executing the block
     - `[FIN] #{msg}#{value}` is logged after executing the block
@@ -21,10 +22,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
     - `:reraise` - When truthy, rescued errors will be re-raised. Default: `nil`
     - `:benchmark` - When truthy, prints realtime spent executing block. Default: `nil`
 - 100% Test Line Coverage of all new features, and existing code
+- Support for `term-ansicolor`, in addition to improved support and tests for
+  - `colorized`
+  - `colored2`
+  - `awesome_print`
 ### Changed
 - `VERSION` constant is now located at `PrettyFeed::Version::VERSION`
 ### Fixed
 - Errors in documentation
+### Removed
+- Ruby 2.6 from CI build matrix
 
 ## [0.2.0] - 2022-03-21
 ### Fixed
