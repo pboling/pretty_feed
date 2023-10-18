@@ -52,7 +52,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency("kettle-soup-cover", "~> 0.1")
 
   # Documentation
-  spec.add_development_dependency("rbs", "~> 3.1")
   spec.add_development_dependency("redcarpet", "~> 3.6")
   spec.add_development_dependency("yard", "~> 0.9", ">= 0.9.34")
   spec.add_development_dependency("yard-junk", "~> 0.0")
