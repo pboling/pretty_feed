@@ -2,7 +2,7 @@
 
 PrettyFeed is a modulizer you can include in a job, worker, class, rake task, etc, which allows for simple pass/fail logging colorization.  Defaults are `truthy: 'green'` and `falsey: 'red'`.
 
-While this gem has few direct dependencies, it won't accomplish do much for you unless you are using a "console output coloring" gem of some kind.
+While this gem has few direct dependencies, it won't do much for you unless you are using a "console output coloring" gem of some kind.
 
 ## Installation
 
