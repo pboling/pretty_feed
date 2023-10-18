@@ -44,7 +44,8 @@ end
 ### Options
 
 Released v1.0.0 has new features, all tested at 100% line & branch coverage.
-Overall the library maintains >= 90% line & branch coverage.
+Overall I'm sure the library maintains >= 90% line & branch coverage, and probably 100%,
+but combining the various runs with each String color library is hard.
 
 - `pftf` now accepts a block, and when given:
     - `[BEG] #{msg}#{value}` is logged before executing the block
