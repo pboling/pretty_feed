@@ -53,7 +53,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency("rake", "~> 13.0")
 
   # Code Coverage
-  spec.add_development_dependency("kettle-soup-cover", "~> 0.1")
+  spec.add_development_dependency("kettle-soup-cover", "~> 1.0", ">= 1.0.1")
 
   # Documentation
   spec.add_development_dependency("kramdown", "~> 2.4")

@@ -40,6 +40,7 @@ require "config/rspec/silent_stream"
 # Load SimpleCov config
 require "kettle/soup/cover"
 
+require "simplecov" if Kettle::Soup::Cover::DO_COV
 # This gem
 require "pretty_feed"
 
