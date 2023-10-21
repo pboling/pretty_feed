@@ -11,5 +11,3 @@ gem "byebug"
 
 # Not compatible with JRuby, so can't be in the gemspec.
 gem "rbs", "~> 3.1"
-
-gem "kettle-soup-cover", path: "/Users/pboling/src/my/kettle-rb/kettle-soup-cover"
