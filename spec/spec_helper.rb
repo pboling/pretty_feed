@@ -1,10 +1,5 @@
 # frozen_string_literal: true
 
-# External gems
-require "version_gem/rspec"
-require "silent_stream"
-require "byebug" if ENV.fetch("DEBUG", "false").casecmp?("true")
-
 compat_lib = begin
   require "awesome_print"
   puts "Testing with awesome_print".cyan
@@ -33,16 +28,20 @@ end
 COMPAT_LIB = compat_lib
 
 # RSpec Configs
+require "config/byebug"
 require "config/rspec/rspec_block_is_expected"
 require "config/rspec/rspec_core"
 require "config/rspec/silent_stream"
+require "config/rspec/version_gem"
 
 # Load SimpleCov config
 require "kettle/soup/cover"
 
+# Last thing before loading this gem!
 require "simplecov" if Kettle::Soup::Cover::DO_COV
-# This gem
+
+# Finally, this gem
 require "pretty_feed"
 
-# Support Files
+# Support Files (but only the ones that can't be loaded before the gem is loaded)
 require "support/example_classes"
