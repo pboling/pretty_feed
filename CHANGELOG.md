@@ -5,11 +5,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### UNCATEGORIZED
+- Release instructions; create checksums [after releasing]()
 ### Added
 - Full integration with `kettle-soup-cover` for test coverage
   - Upgraded to `kettle-soup-cover` v1.0.1
 ### Changed
 ### Fixed
+- bin/console now loads this gem automatically
 ### Removed
 
 ## [1.0.1] - 2023-10-18
