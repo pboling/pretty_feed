@@ -35,7 +35,7 @@ require "config/rspec/silent_stream"
 require "config/rspec/version_gem"
 
 # Load SimpleCov config
-require "kettle/soup/cover"
+require "kettle-soup-cover"
 
 # Last thing before loading this gem!
 require "simplecov" if Kettle::Soup::Cover::DO_COV
